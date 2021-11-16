@@ -1,4 +1,4 @@
-## Pulpomtic-backend-test
+## Qualifinds-backend-test
 
 ### Running the development environment
 
