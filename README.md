@@ -32,6 +32,8 @@ Email contact: kevincruces.zuloaga@gmail.com
 * Desarrollar un endpoint para crear usuarios y productos
 --
 * Endpoint para consultar los productos de un usuario. Los usuarios deben de estar ordenados en base a la suma de precios de los productos que tiene asignados
+--
+* Solucionar la sincronización forzada al obtener una instancia de la conexión de SQL
 ### Response
  `{
 *     "users": [{
