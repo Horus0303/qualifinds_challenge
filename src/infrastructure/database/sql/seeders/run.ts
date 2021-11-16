@@ -1,0 +1,2 @@
+import sqlConnection from '../'
+sqlConnection()

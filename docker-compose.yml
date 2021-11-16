@@ -1,0 +1,40 @@
+version: '3.4'
+
+services:
+    tsexpress:
+        build:
+            context: .
+            dockerfile: ./Dockerfile
+        command: shell
+        environment:
+            - MONGO_HOST=mongo
+        ports: 
+            - "127.0.0.1:8081:8081"
+        links: 
+            - mongo
+            - mysql
+        volumes: 
+            - .:/usr/src/app
+    mongo:
+        container_name: mongodb
+        image: mongo
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=root
+            - MONGO_INITDB_ROOT_PASSWORD=123456
+        ports: 
+            - "27018:27017"
+        logging:
+            driver: none
+    mysql:
+        image: mysql:5.7.25
+        container_name: mysql_container
+        restart: always
+        volumes: 
+            - ./sql-data/db:/var/lib/mysql
+        ports:
+            - "3307:3306"
+        environment:
+            - MYSQL_DATABASE=challenge_db
+            - MYSQL_USER=root
+            - MYSQL_PASSWORD=123456
+            - MYSQL_ROOT_PASSWORD=123456
